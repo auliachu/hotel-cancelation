@@ -54,8 +54,12 @@ def make_prediction(hotel_type, model_type, features):
     return prediction
 
 # Streamlit app
+st.title("Final Project Data Science")
+st.divider()
+st.subheader("Kelompok 1")
+st.write("1. Aulia Salsabila			 	(23/530951/PPA/06752)\n 2. Muhammad Salam		         	(23/512107/PPA/06497)\n 3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)")
+st.divider()
 st.title("Hotel Booking Cancellation Prediction")
-
 # Choose hotel type
 hotel_type = st.selectbox("Select Hotel Type", ["City Hotel", "Resort Hotel"])
 hotel_number = 1 if hotel_type == "City Hotel" else 2
@@ -68,20 +72,20 @@ model_number = { "XGBoost": 4}[model_type]
 if hotel_number == 1:
     st.header("City Hotel Features")
     arrival_date_year = st.selectbox('Pilih tahun kedatangan', ['2015','2016','2017','2018','2019', '2020', '2021', '2022','2023', '2024'])
-    lead_time = st.number_input('lead_time')
-    distribution_channel = st.selectbox('distribution_channel',["TA/TO", "Direct", "Undefined", "Corporate", "GDS"])
-    required_car_parking_spaces = st.selectbox('required_car_parking_spaces',['0','1','2','3'])
-    country = st.selectbox('country',['PRT', 'ITA', 'ESP', 'DEU', 'FRA', 'NLD', 'GBR', 'ROU', 'BRA', 'SWE', 'AUT', 'Others', 'BEL', 'CHE', 'RUS', 'IRL', 'POL', 'CHN', 'USA', 'CN'])
-    total_of_special_requests = st.selectbox('total_of_special_requests',['0', '1', '2', '3', '4', '5'])
-    adr = st.number_input('adr')
-    market_segment = st.selectbox('market_segment', ['Offline', 'TA/TO', 'Online TA', 'Groups', 'Others', 'Direct', 'Corporate'])
+    lead_time = st.number_input('Jumlah hari sebelum kedatangan saat pemesanan')
+    distribution_channel = st.selectbox('Nama saluran yang digunakan untuk pemesanan',["TA/TO", "Direct", "Undefined", "Corporate", "GDS"])
+    required_car_parking_spaces = st.selectbox('Jumlah tempat parkir mobil yang dibutuhkan',['0','1','2','3'])
+    country = st.selectbox('Identifikasi ISO negara pemegang pemesanan',['PRT', 'ITA', 'ESP', 'DEU', 'FRA', 'NLD', 'GBR', 'ROU', 'BRA', 'SWE', 'AUT', 'Others', 'BEL', 'CHE', 'RUS', 'IRL', 'POL', 'CHN', 'USA', 'CN'])
+    total_of_special_requests = st.selectbox('Jumlah permintaan khusus yang dibuat',['0', '1', '2', '3', '4', '5'])
+    adr = st.number_input('Rata-rata Tarif harian')
+    market_segment = st.selectbox('Segmentasi pasar tempat pemesanan ditetapkan', ['Offline', 'TA/TO', 'Online TA', 'Groups', 'Others', 'Direct', 'Corporate'])
     customer_type = st.selectbox('customer_type',['Transient', 'Transient-Party', 'Contract', 'Group'])
     deposit_type = st.selectbox('deposit_type',['No Deposit', 'Non Refund', 'Refundable'])
     is_use_agent = st.selectbox('is_use_agent',['1','0'])
-    stays_in_weekend_nights = st.selectbox('stays_in_weekend_nights',[0, 2, 1, 3, 4])
-    stays_in_week_nigths = st.selectbox('stays_in_week_nights',[2, 4, 3, 5, 1, 6, 7, 0])
-    reserved_room_type = st.selectbox('reserved_room_type',	['A', 'B', 'D', 'F', 'E', 'G', 'C'])
-    assigned_room_type = st.selectbox('assigned_room_type',['A', 'B', 'F', 'D', 'G', 'E', 'K', 'C'])
+    stays_in_weekend_nights = st.selectbox('Total lama menginap, berapa malam di akhir pekan (Sabtu dan Minggu)',[0, 2, 1, 3, 4])
+    stays_in_week_nigths = st.selectbox('Total lama menginap, berapa malam di hari kerja (Senin sampai Jumat)',[2, 4, 3, 5, 1, 6, 7, 0])
+    reserved_room_type = st.selectbox('Jenis kamar yang diminta oleh tamu',	['A', 'B', 'D', 'F', 'E', 'G', 'C'])
+    assigned_room_type = st.selectbox('Jenis kamar ditetapkan untuk pemesanan',['A', 'B', 'F', 'D', 'G', 'E', 'K', 'C'])
     is_changed_room = 1 if reserved_room_type == assigned_room_type else 0
     total_stay_duration = stays_in_weekend_nights + stays_in_week_nigths
     total_expense = adr * total_stay_duration
