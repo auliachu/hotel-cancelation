@@ -5,7 +5,7 @@ Anggota Kelompok
 3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)
 
 
-Deskripsi Tugas
+Deskripsi Tugas/n
 Pembatalan pesanan adalah tantangan besar bagi industri perhotelan karena menyebabkan hilangnya pendapatan dari kamar yang tidak terisi. Untuk mengatasi hal ini, diperlukan kerangka kerja teknologi yang dapat memprediksi pembatalan pesanan secara akurat. Prediksi yang tepat memungkinkan hotel menyusun kebijakan dan strategi efektif seperti optimalisasi harga, overbooking yang terukur, dan peningkatan layanan pelanggan. Dalam percobaan ini, kami membangun model prediktif untuk mengidentifikasi pesanan yang berpotensi dibatalkan.
 
 
