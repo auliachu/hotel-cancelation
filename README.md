@@ -1,8 +1,8 @@
 # Tugas Data Science: Pembatalan Pemesanan Hotel
 Anggota Kelompok
-Aulia Salsabila			 	(23/530951/PPA/06752) 
-Muhammad Salam			(23/512107/PPA/06497)
-Mochammad Itmamul Wafa 		(23/526555/PPA/06658)
+1. Aulia Salsabila			 	    (23/530951/PPA/06752) 
+2. Muhammad Salam			        (23/512107/PPA/06497)
+3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)
 
 
 Deskripsi Tugas
