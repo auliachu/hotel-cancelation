@@ -10,5 +10,5 @@ Pembatalan pesanan adalah tantangan besar bagi industri perhotelan karena menyeb
 
 
 ## Dataset
-Dataset yang digunakan dalam menganalisa pembatalan hotel bersumber dari kaggle yang berjudul “Hotel Booking Demand” yang dapat diakses melalui [tautan ini]([https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand]). Dataset ini menyediakan informasi lengkap mengenai pemesanan di dua jenis hotel, yaitu Resort Hotel dan City Hotel, dengan jumlah dataset mencapai 119390 data dan 32 feature.
+Dataset yang digunakan dalam menganalisa pembatalan hotel bersumber dari kaggle yang berjudul “Hotel Booking Demand” yang dapat diakses melalui [tautan ini](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand). Dataset ini menyediakan informasi lengkap mengenai pemesanan di dua jenis hotel, yaitu Resort Hotel dan City Hotel, dengan jumlah dataset mencapai 119390 data dan 32 feature.
 
