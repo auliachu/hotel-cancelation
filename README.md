@@ -5,14 +5,14 @@ Anggota Kelompok
 3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)
 
 
-Deskripsi Tugas/n
+## Deskripsi Tugas
 Pembatalan pesanan adalah tantangan besar bagi industri perhotelan karena menyebabkan hilangnya pendapatan dari kamar yang tidak terisi. Untuk mengatasi hal ini, diperlukan kerangka kerja teknologi yang dapat memprediksi pembatalan pesanan secara akurat. Prediksi yang tepat memungkinkan hotel menyusun kebijakan dan strategi efektif seperti optimalisasi harga, overbooking yang terukur, dan peningkatan layanan pelanggan. Dalam percobaan ini, kami membangun model prediktif untuk mengidentifikasi pesanan yang berpotensi dibatalkan.
 
 
-Dataset
+## Dataset
 Dataset yang kami gunakan dapat diakses di Kaggle. Dataset ini terdiri dari informasi pemesanan hotel termasuk detail tamu, waktu pemesanan, dan apakah pemesanan tersebut dibatalkan atau tidak.
 
-Link Dataset Kaggle
+## Link Dataset Kaggle
 Dataset Pembatalan Pemesanan Hotel di Kaggle
 
 File Tambahan
