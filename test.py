@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+from PIL import Image
 from sklearn.preprocessing import LabelEncoder
 import os
 import xgboost
@@ -54,19 +55,57 @@ def make_prediction(hotel_type, model_type, features):
     return prediction
 
 # Streamlit app
-st.title("Final Project Data Science")
-st.divider()
-st.subheader("Kelompok 1")
-st.write("1. Aulia Salsabila			 	(23/530951/PPA/06752)\n 2. Muhammad Salam		         	(23/512107/PPA/06497)\n 3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)")
-st.divider()
-st.title("Hotel Booking Cancellation Prediction")
-# Choose hotel type
-hotel_type = st.selectbox("Select Hotel Type", ["City Hotel", "Resort Hotel"])
-hotel_number = 1 if hotel_type == "City Hotel" else 2
+st.markdown("<h1 style='text-align: center;'>Final Project Data Science (Cancellation Hotel Booking)</h1>", unsafe_allow_html=True)
+image = Image.open('hotel.jpg')
+new_size = (700, 300)  # Specify the new size (width, height)
+image = image.resize(new_size)
+# Display the image in Streamlit with a caption
+st.image(image, caption='Hotel Demand Booking', use_column_width=False)
 
-# Choose model type
-model_type = st.selectbox("Select Model", ["XGBoost"])
-model_number = { "XGBoost": 4}[model_type]
+st.divider()
+with st.container():
+    st.subheader("Kelompok 1")
+    st.write("1. Aulia Salsabila			 	(23/530951/PPA/06752)\n 2. Muhammad Salam		         	(23/512107/PPA/06497)\n 3. Mochammad Itmamul Wafa 		(23/526555/PPA/06658)")
+
+st.divider()
+st.subheader("Content")
+with st.container():
+    st.write("Pembatalan pesanan adalah salah satu tantangan terbesar yang dihadapi industri perhotelan karena dapat menghilangkan penghasilan dari kamar yang tidak berpenghuni. Berdasarkan permasalahan tersebut, perlu dibangun kerangka kerja teknologi yang dapat memprediksi kemungkinan terjadinya pembatalan setiap pesanan secara akurat, sehingga pihak hotel dapat membuat kebijakan dan strategi yang tepat dalam mengatasi permasalahan tersebut")
+    
+# Subheader for Dataset
+st.subheader("Dataset")
+with st.container():
+    st.write("""
+    Dataset yang digunakan dalam menganalisa pembatalan hotel bersumber dari kaggle yang berjudul 
+    [“Hotel Booking Demand”](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) 
+    yang dapat diakses melalui tautan ini. Dataset ini menyediakan informasi lengkap mengenai pemesanan 
+    di dua jenis hotel, yaitu Resort Hotel dan City Hotel, dengan jumlah dataset mencapai  119390 data dan 32 feature.
+    """)
+    df = pd.read_csv('hotel_bookings.csv')
+    st.write(df)
+
+    st.write("""<span style="color:red">**Note:**</span> Data aslinya berasal dari artikel Hotel Booking Demand Datasets yang ditulis oleh <b>Nuno Antonio, Ana Almeida, dan Luis Nunes untuk Data in Brief, Volume 22, Februari 2019.</b>""", unsafe_allow_html=True)
+    
+st.subheader("kesimpulan")
+with st.container():
+    st.write("""Dalam menentukan prediksi pembatalan pemesanan hotel, model yang digunakan adalah XGBoost, yang menunjukkan kinerja dengan nilai akurasi 0.80 untuk city hotel dan 0.85 untuk resort hotel. Penentuan fitur-fitur dalam dataset yang digunakan untuk prediksi dilakukan melalui metode seleksi fitur Anova dan Mutual Information, serta teknik rekayasa fitur (feature engineering) yang membantu dalam mengidentifikasi fitur penting.
+
+Untuk city hotel, fitur-fitur yang dipilih meliputi tahun kedatangan, perubahan kamar, waktu tunggu, saluran distribusi, kebutuhan ruang parkir, total pengeluaran, negara asal tamu, jumlah permintaan khusus, rata-rata tarif harian, segmen pasar, tipe pelanggan, jenis deposit, dan penggunaan agen pemesanan. Sedangkan untuk resort hotel, fitur-fitur yang dipilih meliputi perubahan kamar, waktu tunggu, tipe kamar yang ditugaskan, saluran distribusi, durasi total menginap, bulan kedatangan, kebutuhan ruang parkir, total pengeluaran, negara asal tamu, rata-rata tarif harian, segmen pasar, dan penggunaan agen pemesanan.
+
+Dengan menggunakan model XGBoost dan pemilihan fitur yang tepat, prediksi pembatalan pemesanan hotel dapat dilakukan dengan akurasi yang cukup tinggi, memberikan informasi yang berharga untuk pengelolaan dan pengambilan keputusan operasional hotel.""", unsafe_allow_html=True)
+
+# Subheader for Model
+st.divider()
+st.subheader("Hotel Booking Cancellation Prediction")
+with st.container():
+    # Choose hotel type
+    hotel_type = st.selectbox("Select Hotel Type", ["City Hotel", "Resort Hotel"])
+    hotel_number = 1 if hotel_type == "City Hotel" else 2
+
+    # Choose model type
+    model_type = st.selectbox("Select Model", ["XGBoost"])
+    model_number = { "XGBoost": 4}[model_type]
+
 
 # Define the input fields based on the features used in the model
 if hotel_number == 1:
